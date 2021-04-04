@@ -1,0 +1,90 @@
+﻿
+@model PagedList.IPagedList<TheatreCMS3.Areas.Prod.Models.Production>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+	ViewBag.Title = "Productions";
+}
+
+<!-- Title -->
+<h2 class="Production--header text-left ml-2">Productions</h2>
+
+<!-- Create Button -->
+<div class="text-left ml-2">
+	@Html.ActionLink("Create New", "Create", null, new { @class = "btn Production--button mb-3" })
+</div>
+
+<!-- Search Bar -->
+@using (Html.BeginForm("Index", "Productions", FormMethod.Get))
+{
+	<p class="cms-text-secondary ml-2">
+		Find Title: <br />
+		@Html.TextBox("SearchString")
+		<input type="submit" value="Search" />
+	</p>
+}
+
+<!-- Card box -->
+<div class="container p-1">
+
+	<!-- Flex-wrap row with responsive number of columns -->
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 no-gutters mb-1">
+
+		<!-- Iterate Productions table and create a card for each row -->
+		@foreach (var item in Model)
+		{
+			<!-- Card -->
+			<div>
+				<div class="card w-auto  mx-1 mb-2 p-0 cms-bg-secondary">
+
+					<div class="Production--cardImage">
+
+						<!-- Production Image -->
+						@*<img src="@Html.DisplayFor(modelItem => item.DefaultPhoto) alt="@Html.DisplayFor(modelItem => item.Title)" />*@
+						<img src="@Url.Content("~/Content/images/macbeth.png")" class="card-img-top" alt="Default Photo" />
+
+						<!-- Hover overlay with Details, Edit, and Delete link buttons -->
+						<div class="card-img-overlay text-center Production--cardOverlay">
+							<p>
+								<a href="#" type="submit" class="badge badge-pill cms-bg-secondary ModalButton Production--a" data-id="@item.ProductionID" data-target="#ModalContent">Details</a>
+								@Html.ActionLink("Edit", "Edit", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-dark" })
+								@Html.ActionLink("Delete", "Delete", new { id = item.ProductionID }, new { @class = "badge badge-pill badge-danger" })
+							</p>
+						</div>
+					</div>
+
+					<!-- Production Title -->
+					<div class="card-title my-0 p-1 Production--cardTitle overflow-auto">
+						<h5 class="card-title cms-text-dark text-center my-0 ">@Html.DisplayFor(modelItem => item.Title)</h5>
+					</div>
+
+				</div>
+			</div>
+		}
+
+	</div>
+</div>
+
+<!-- Page Navigation -->
+<p class="ml-2 my-1 p-0 cms-text-secondary">
+	Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</p>
+<p>
+	@Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }))
+</p>
+
+<!-- Details Modal -->
+<div class="modal" id="Details" tabindex="-1">
+
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+		<div class="modal-content">
+
+			<div id="ModalContent"></div>
+
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<TheatreCMS3.Areas.Prod.Models.CalendarEvent>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Index</h2>
+
+<div class="btn btn-default prod-calendar--button">
+	@Html.ActionLink("Create New", "Create")
+</div>
+
+@* loops through each event object *@
+@foreach (var item in Model)
+{
+	<div class="container prod-calendar--index">
+		<div class="col-1 prod-calendar--date">
+			<h3 class="display-3 font-weight-normal">@Html.DisplayFor(modelItem => item.StartDate.Value.Day)</h3>
+			<h4 class="prod-calendar--month text-uppercase">@item.StartDate.Value.ToString("MMM")</h4>
+			<div class="prod-calendar--eventlength ">
+				@* total days hover over *@
+				<a tabindex="0" class="prod-calendar--pop" role="button" data-toggle="popover" data-trigger="hover" data-content="This is a @((item.EndDate - @item.StartDate).Value.TotalDays) day event.">
+					@* all day event or total days *@
+					@if (item.StartTime == null)
+					{
+						<p>All Day <i class="fas fa-clock"></i></p>
+					}
+					else
+					{
+						<p>@((item.EndDate - item.StartDate).Value.Days) Days <i class="fas fa-clock"></i></p>
+					}
+				</a>
+			</div>
+		</div>
+		<div class="col-11 prod-calendar--event">
+			<div class="prod-calendar--titledays">
+				<h4 class="prod-calendar--title">@Html.DisplayFor(modelItem => item.Title)</h4>
+				@* calculates if it is the last day, how many days left or not started *@
+				@if (item.EndDate == DateTime.Now.Date)
+				{
+					<p class="prod-calendar--lastday">Last Day!</p>
+				}
+				else if (item.StartDate > DateTime.Now)
+				{
+					<p></p>
+				}
+				else
+				{
+
+					<p class="prod-calendar--daysleft">@((item.EndDate - DateTime.Now).Value.Days) days remaining!</p>
+
+				}
+
+				<div class="btn-group dropleft prod-calendar--dropleft">
+					@* 3 dots menu button *@
+					<a role="button" class="btn dropdown-toggle prod-calendar--leftbtn" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+							<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+						</svg>
+					</a>
+					@* 3 dots dropdown menu *@
+					<ul class="dropdown-menu prod-calendar--leftmenu" aria-labelledby="dropdownMenuLink">
+						<li>@Html.ActionLink("Edit", "Edit", new { id = item.EventId })</li>
+						<li>@Html.ActionLink("Details", "Details", new { id = item.EventId })</li>
+						<li>@Html.ActionLink("Delete", "Delete", new { id = item.EventId })</li>
+					</ul>
+				</div>
+			</div>
+			<p class="prod-calendar--daytime">
+				@if (item.StartTime == null)
+				{
+					@* display span of days *@
+					<text>
+						@Html.DisplayFor(modelItem => item.StartDate.Value.DayOfWeek) - @Html.DisplayFor(modelItem => item.EndDate.Value.DayOfWeek)
+					</text>
+				}
+				else
+				{
+					@* display span of days and times *@
+					<text>
+						@Html.DisplayFor(modelItem => item.StartDate.Value.DayOfWeek) - @Html.DisplayFor(modelItem => item.EndDate.Value.DayOfWeek), @Html.DisplayFor(modelItem => item.StartTime) - @Html.DisplayFor(modelItem => item.EndTime)
+					</text>
+				}
+			</p>
+			<p class="prod-calendar--desc">@Html.DisplayFor(modelItem => item.Description)</p>
+		</div>
+	</div>
+}
+<hr class="prod-calendar--hr" />
+
+ @*&& item.EndDate != item.StartDate*@

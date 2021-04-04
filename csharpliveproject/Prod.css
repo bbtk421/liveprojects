@@ -1,0 +1,414 @@
+﻿/* PRODUCTION AREA STYLING */
+
+
+/* CREATE AND EDIT PRODUCTIONS PAGES*/
+
+/* Outer form container */
+.Production--formBox {
+    padding: 4px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    width: 60%;
+    background-color: var(--main-color--light);
+}
+
+/* Create wider fields on small screens */
+@media screen and (max-width: 990px) {
+    .Production--formBox {
+        width: 100%;
+    }
+}
+
+.Castmember--castform {
+	border-radius: 2px;
+}
+	.Castmember--castform:focus {
+		background-color: var(--secondary-color);
+		border: 3px solid var(--main-color);
+	}
+
+/* Inner form container */
+.Production--form {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--light-color);
+}
+
+/* Headings */
+.Production--header {
+    padding-top: 50px;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+/* Input fields  */
+.Production--input-div {
+    max-width: 100%;
+}
+
+.Production--input {
+    background-color: var(--secondary-color);
+}
+
+.Production--input:focus {
+    border: 2px solid var(--main-color);
+}
+
+/* Buttons */
+.Production--button {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.Production--button-list {
+    margin-left: 5px;
+    background-color: var(--main-color--light);
+    font-weight: bold;
+}
+
+.Production--button:hover {
+    opacity: 0.9;
+}
+
+/* END CREATE AND EDIT PRODUCTION PAGES */
+
+/* PRODUCTIONS INDEX PAGE */
+
+/* Card Hover Overlay */
+.Production--cardImage {
+	position: relative;
+}
+
+.Production--cardOverlay {
+	opacity: 0;
+	transition: .5s ease;
+}
+
+.Production--cardOverlay:hover {
+	opacity: 1;
+}
+
+/* Size title box to prevent automatic sizing and force overflow */
+.Production--cardTitle {
+	height: 40px;
+}
+
+/* Modal style */
+#ModalContent {
+	background-color: var(--secondary-color);
+	color: var(--dark-color);
+}
+
+/* Retain badge appearance for modal link */
+.Production--a {
+	color: var(--dark-color);
+}
+
+.Production--a:hover {
+	color: var(--dark-color);
+	opacity: 70%;
+}
+
+/* END PRODUCTIONS INDEX PAGE */
+
+
+h2 {
+	color: white;
+	margin-top: 7px;
+	text-align: center;
+}
+
+
+.prod-calendar--button {
+	display: inline-block;
+	background-color: var(--secondary-color);
+	color: black !important;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 0px;
+	margin-bottom: 5px;
+}
+
+.prod-calendar--button a {
+	color: black;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+}
+
+.prod-calendar--button:hover { /* matched hover effect from other pages */
+	background-color: #DEB887;
+}
+
+
+
+.prod-calendar--create { /* whole form container*/
+	margin-bottom: 55px;
+	background-color: white;
+	border-radius: .25rem;
+	padding: 0px 0px 5px 0px;
+	width: 75%;
+	color: var(--dark-color);
+}
+.prod-calendar--group { /* all form elements together */
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.prod-calendar--control { /* form field color */
+	background-color: lightgray !important;
+}
+
+.prod-calendar--control:focus { /* create form field outline */
+	box-shadow: 0 0 0 0.1rem var(--main-color--light);
+	border-color: var(--main-color--light);
+}
+
+.prod-calendar--btns {
+	display: flex;
+	justify-content: center;
+	text-decoration: none !important;
+	margin-top: .5rem;
+}
+
+.productionphoto-image {
+	max-width: 100%;
+	height: auto;
+}
+
+@media screen and (max-width: 991px) {
+	.prod-calendar--create {
+		width: 100%;
+		padding: 0px 15px 5px 15px;
+	}
+}
+
+/*Cast member styling*/
+/*Form styling*/
+.Castmember--castformgroup {
+	
+}
+
+.Castmember--formBox {
+	padding: 4px;
+	border-radius: 10px;
+	width: 60%;
+	background-color: var(--main-color--light);
+	margin: auto;
+}
+
+@media screen and (max-width: 990px) {
+	.Castmember--formBox {
+		width: 100%;
+	}
+}
+
+/*Button styling*/
+.Castmember--Backtolist {
+	color: black;
+	background-color: var(--main-color);
+	border-radius: 4px;
+	font-weight: 500;
+	display: inline-block;
+	margin-top: 6px;
+	margin-bottom: 4px;
+}
+
+	.Castmember--Backtolist:hover {
+		opacity: 0.9;
+		color: black;
+		text-decoration: none !important;
+	}
+
+.Castmember--Createbutton {
+	background-color: var(--secondary-color);
+	border-radius: 4px;
+	font-weight: bold;
+	display: inline-block;
+	margin-top: 8px;
+	margin-bottom: 4px;
+}
+
+.Castmember--Createbutton:hover {
+	opacity: 0.9;
+}
+
+.Castmember--photoupload {
+	background-color: var(--secondary-color);
+}
+
+/*formatting so the pictures display uniformly on the webpage.*/
+.castMember-pic {
+    max-width: 100%;
+    height: auto;
+}
+
+.prod-calendar--date h3 {
+	font-size: 2.5rem !important;
+}
+.prod-calendar--date h4 {
+	font-size: 1.2rem !important;
+}
+.prod-calendar--eventlength p {
+	font-size: .7rem !important;
+	width: max-content;
+	text-align: center !important;
+}
+.prod-calendar--date {
+	text-align: center !important;
+}
+
+.prod-calendar--date {
+	display: block;
+	text-align: right;
+	margin-right: 1rem;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.prod-calendar--date h3 {
+	font-size: 3.5rem;
+	text-align: center;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.prod-calendar--date h4 {
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+.prod-calendar--month {
+	display: block;
+	text-align: center;
+	opacity: .5;
+	margin-bottom: 0px;
+}
+
+.prod-calendar--eventlength {
+	text-align: center;
+}
+
+.prod-calendar--eventlength p {
+	display: inline-block;
+	font-size: .9rem;
+	opacity: .5;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+}
+
+/* popover */
+.prod-calendar--pop:focus {
+	outline: none;
+}
+
+.prod-calendar--pop {
+	margin-bottom: 0;
+}
+
+/* individual event index container */
+.prod-calendar--event {
+	display: block;
+	padding-top: .5rem;
+}
+
+/* index page container */
+.prod-calendar--index {
+	display: inline-flex;
+	width: 100%;
+	background-color: white;
+}
+
+.prod-calendar--title {
+	margin-bottom: 0;
+}
+
+.prod-calendar--titledays {
+	display: flex;
+	
+}
+
+.prod-calendar--daysleft {
+	background-color: var(--secondary-color);
+	font-weight: 700;
+	border-radius: .25rem;
+	padding: 4px;
+	margin-left: .75rem;
+	font-size: .85rem;
+	display: block;
+	margin-bottom: 0;
+}
+
+.prod-calendar--lastday {
+	background-color: var(--main-color);
+	color: white;
+	font-weight: 700;
+	border-radius: .25rem;
+	padding: 4px;
+	margin-left: .75rem;
+	font-size: .85rem;
+	display: block;
+	margin-bottom: 0;
+}
+
+/* 3 dots style */
+.prod-calendar--dropleft {
+	display: block;
+	margin-left: auto;
+}
+
+.prod-calendar--leftmenu {
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 500;
+	min-width: 5rem;
+	color: black !important;
+	background-color: white !important;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+
+.prod-calendar--leftmenu li:hover {
+	background-color: lightgray;
+}
+
+.prod-calendar--leftmenu a {
+	text-decoration: none;
+	color: black !important;
+}
+
+.prod-calendar--leftbtn {
+	padding: 0px;
+	max-height: 20px;
+	float: right;
+	display: block;
+}
+
+.prod-calendar--leftbtn::before {
+	content: none !important;
+}
+
+.prod-calendar--daytime { 
+	margin-bottom: .25rem;
+}
+
+.prod-calendar--desc { /* index description */
+	border: 1px solid lightgrey;
+	border-radius: .25rem;
+	padding: .5rem;
+	color: black;
+}
+
+.prod-calendar--hr { /* style line break between index items */
+	color: lightgray;
+	padding: 0;
+	margin: 0;
+	clear: both;
+	display: block;
+	background-color: white;
+}
