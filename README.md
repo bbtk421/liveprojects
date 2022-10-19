@@ -17,3 +17,4 @@ The pages of the site have full CRUD functionality and the index is sortable by 
 This was an existing local theater website that my team was adding funtionality to and matching the
 styles to the current aestheic as well as making it resposive.
 ```
+
